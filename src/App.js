@@ -35,15 +35,13 @@ class App extends Component {
 
 
   componentDidMount() {
-    fetch(`http://localhost:3001/api/campaigns`)
-    .then(response => response.json())
-    .then(campaigns => this.setState({campaigns}))
+
   }
   render() {
     return (
       <div className="App">
         App Container
-        <Products products={products} />
+        <Products products={this.state.products} />
         <Campaigns campaigns={this.state.campaigns}  />
 
       </div>
