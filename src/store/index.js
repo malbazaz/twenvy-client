@@ -3,15 +3,6 @@ import thunk from 'redux-thunk';
 import productsReducer from '../reducers/productsReducer';
 import campaignsReducer from '../reducers/campaignsReducer';
 
-
-export default createStore(
-    reducers,
-    applyMiddleWare(...middlewares)
-)
-
-
-
-
 const reducers = combineReducers({
     productsReducer, 
     campaignsReducer
