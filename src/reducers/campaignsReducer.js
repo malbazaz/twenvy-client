@@ -1,7 +1,7 @@
 const campaignsReducer = (states = [], action) =>{
     switch(action.type) {
-        case 'SHOW_CAMPAIGN':
-            return action.show
+        case 'ADD_CAMPAIGN':
+            return {...state, campaigns: [state.campaigns, action.add]}
         default:
             return state;
     }

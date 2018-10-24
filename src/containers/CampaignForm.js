@@ -21,6 +21,12 @@ class CampaignForm extends Component {
       handleSubmit = event => {
         event.preventDefault();
         this.props.createForm(this.state)
+        this.setState({
+            product_id: 0,
+            end_date: 0,
+            location: '',
+            target_qty: 0 
+        })
       }
 
     render() {
