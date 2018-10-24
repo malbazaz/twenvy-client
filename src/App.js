@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Campaign} from './containers/Campaigns'
+import {Product} from './containers/Products'
 
 
 class App extends Component {
@@ -7,6 +9,9 @@ class App extends Component {
     return (
       <div className="App">
         App Container
+        <Product />
+        <Campaign />
+
       </div>
     );
   }
