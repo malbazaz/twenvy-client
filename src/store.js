@@ -10,4 +10,13 @@ const campaignsReducer = (states = [], action) =>{
     }
 }
 
-const campaigns = campaignsReducer(undefined, {type: '@@INIT'});
+const reducers = combineReducers({
+    campaigns: campaignReducer
+})
+
+const middleware = [thunk]
+
+export default createStore(
+    reducers, applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__&& window.__REDUX_DEVTOOLS_EXTENSION__()
+)
