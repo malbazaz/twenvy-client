@@ -3,8 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './store'
+import {Provider} from 'react-redux'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+<Provider store={store} >
+<App />
+</Provider>
+, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -13,19 +19,19 @@ serviceWorker.unregister();
 
 
 
-var store = {
-    campaigns: [
-        {...}
-    ], 
-    campaignFormData: [
-        {
-            product_id: 0, 
-            end_date: 0, 
-            location: '',
-            target_qty: 0,
-            sold_qty: 0
+// var store = {
+//     campaigns: [
+//         {...}
+//     ], 
+//     campaignFormData: [
+//         {
+//             product_id: 0, 
+//             end_date: 0, 
+//             location: '',
+//             target_qty: 0,
+//             sold_qty: 0
 
-        }
-    ], 
-    currentCampaign: {}
-}
+//         }
+//     ], 
+//     currentCampaign: {}
+// }

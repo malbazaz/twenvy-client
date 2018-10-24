@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CampaignForm from './CampaignForm'
 import CampaignCard from '../components/CampaignCard'
+import {connect} from 'react-redux'
 
 class Campaigns extends Component{ 
  
@@ -14,4 +15,10 @@ class Campaigns extends Component{
        )
    } 
 }
-export default Campaigns; 
+
+const mapStateToProps = (state) => {
+    return({
+        campaigns: this.state.campaigns
+    })
+}
+export default connect(mapStateToProps)(Campaigns); 

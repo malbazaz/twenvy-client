@@ -12,6 +12,8 @@ const products = [{
   category_id: 1, 
   model: "iphoneXS_V01"
 }]
+
+handleButton = open => this.setState({page: page})
 // const campaigns = [{
 //   product_id: 2, 
 //   end_date: 2018-12-10, 
@@ -23,13 +25,13 @@ const products = [{
 // const API_URL = process.env.REACT_APP_API_URL
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state={
-      campaigns:[], 
-      products: []
-    }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state={
+  //     campaigns:[], 
+  //     products: []
+  //   }
+  // }
 
 
   componentDidMount() {
