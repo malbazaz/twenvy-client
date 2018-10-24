@@ -6,7 +6,7 @@ const Campaigns = (props) => (
         {props.campaigns.map(campaign => 
         <div>
         <h1>{campaign.product_id}</h1>
-        <p>Quantity Sold: {campaign.qty_sold} </p>
+        <p>Quantity Sold: {campaign.sold_qty}</p>
         </div>
         )}
     </div>

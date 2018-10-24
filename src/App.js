@@ -20,7 +20,7 @@ const products = [{
 //   sold_qty:10
 // }]
 
-const API_URL = process.env.REACT_APP_API_URL
+// const API_URL = process.env.REACT_APP_API_URL
 
 class App extends Component {
   constructor(props){
@@ -33,7 +33,7 @@ class App extends Component {
 
 
   componentDidMount() {
-    fetch(`${API_URL}`/campaigns)
+    fetch(`http://localhost:3001/api/campaigns`)
     .then(response => response.json())
     .then(campaigns => this.setState({campaigns}))
   }
@@ -42,7 +42,7 @@ class App extends Component {
       <div className="App">
         App Container
         <Products products={products} />
-        <Campaigns campaigns={campaigns}  />
+        <Campaigns campaigns={this.state.campaigns}  />
 
       </div>
     );
