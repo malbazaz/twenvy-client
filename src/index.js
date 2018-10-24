@@ -10,3 +10,22 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+
+var store = {
+    campaigns: [
+        {...}
+    ], 
+    campaignFormData: [
+        {
+            product_id: 0, 
+            end_date: 0, 
+            location: '',
+            target_qty: 0,
+            sold_qty: 0
+
+        }
+    ], 
+    currentCampaign: {}
+}

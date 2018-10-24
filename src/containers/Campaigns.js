@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
+import CampaignForm from './CampaignForm'
+import CampaignCard from '../components/CampaignCard'
 
-const Campaigns = (props) => (
-    <div>
-        <h3>Campaign Components</h3>
-        {props.campaigns.map(campaign => 
+class Campaigns extends Component{ 
+ 
+   render(){
+       return(
         <div>
-        <h1>{campaign.product_id}</h1>
-        <p>Quantity Sold: {campaign.sold_qty}</p>
-        </div>
-        )}
+        <h3>Campaign Components</h3>
+        {this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
+        <CampaignForm />
     </div>
-)
-
+       )
+   } 
+}
 export default Campaigns; 
