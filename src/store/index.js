@@ -7,23 +7,7 @@ export default createStore(
     applyMiddleWare(...middlewares)
 )
 
-const campaignsReducer = (states = [], action) =>{
-    switch(action.type) {
-        case 'SHOW_CAMPAIGN':
-            return action.show
-        default:
-            return state;
-    }
-}
 
-const productsReducer = (state = [], action) =>{
-    switch(action.type){
-        case 'SHOW_PRODUCT':
-            return action.show 
-        default:
-            return state;
-    }
-}
 
 
 const reducers = combineReducers({
