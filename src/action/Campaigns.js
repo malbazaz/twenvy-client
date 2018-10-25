@@ -1,4 +1,4 @@
-export function fetchCampaigns() {
+export default function fetchCampaigns() {
     return (dispatch) => {
       dispatch({ type: 'START_ADDING_CAMPAIGNS_REQUEST' });
       return   fetch(`http://localhost:3001/api/campaigns`)

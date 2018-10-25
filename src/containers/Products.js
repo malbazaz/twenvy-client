@@ -3,13 +3,11 @@ import ProductCard from '../components/productCard'
 import {connect} from 'react-redux'
 
 class Products extends Component{ 
-
- 
    render(){
        return(
         <div>
         <h3>Product Components</h3>
-        {this.props.products.map(product => <productCard key={product.id} product={product} />)}
+        {this.props.products.map(product => <ProductCard key={product.id} product={product} />)}
         <productForm />
     </div>
        )

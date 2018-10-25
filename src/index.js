@@ -18,20 +18,3 @@ ReactDOM.render(
 serviceWorker.unregister();
 
 
-
-// var store = {
-//     campaigns: [
-//         {...}
-//     ], 
-//     campaignFormData: [
-//         {
-//             product_id: 0, 
-//             end_date: 0, 
-//             location: '',
-//             target_qty: 0,
-//             sold_qty: 0
-
-//         }
-//     ], 
-//     currentCampaign: {}
-// }

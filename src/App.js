@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import Campaigns from './containers/Campaigns'
 import Products from  './containers/Products'
+import {connect} from 'react-redux'
+import fetchCampaigns from './action/fetchCampaigns'
+import fetchProducts from './action/fetchProducts'
+import productsReducer from './reducers/productsReducer'
+import campaignsReducer from './reducers/campaignsReducer'
 
-const products = [{
-  name: "Iphone XS",
-  brand: "Apple",
-  price: 999,
-  img_url: "",
-  description: "Coolest Iphone ever.",
-  category_id: 1, 
-  model: "iphoneXS_V01"
-}]
-
-handleButton = open => this.setState({page: page})
+// const products = [{
+//   name: "Iphone XS",
+//   brand: "Apple",
+//   price: 999,
+//   img_url: "",
+//   description: "Coolest Iphone ever.",
+//   category_id: 1, 
+//   model: "iphoneXS_V01"
+// }]
 // const campaigns = [{
 //   product_id: 2, 
 //   end_date: 2018-12-10, 
@@ -22,7 +25,6 @@ handleButton = open => this.setState({page: page})
 //   sold_qty:10
 // }]
 
-// const API_URL = process.env.REACT_APP_API_URL
 
 class App extends Component {
   // constructor(props){
@@ -32,21 +34,50 @@ class App extends Component {
   //     products: []
   //   }
   // }
-
-
   componentDidMount() {
-
+    this.props.fetchCampaigns() 
+    this.props.fetchProducts()
   }
+
   render() {
     return (
+      <div>
+        <Navbar />
       <div className="App">
         App Container
-        <Products products={this.state.products} />
-        <Campaigns campaigns={this.state.campaigns}  />
+        <Products products={this.props.products} />
+        <Campaigns campaigns={this.props.campaigns}  />
 
       </div>
+      </div>
+ 
+
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return({
+    campaigns: state.campaigns, 
+    products: state.products
+  })
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+  return({
+     fetchCampaigns: () =>{
+       let action = fetchCampaigns()
+       dispatch(action)
+     },
+     fetchProducts: () =>{
+      let action = fetchProducts()
+      dispatch(action)
+     }
+    
+  })
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
