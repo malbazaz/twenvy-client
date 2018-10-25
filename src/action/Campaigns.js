@@ -22,7 +22,7 @@
     }
   }
 
-export const updateCampaignFormData = formData = {
+export const updateCampaignFormData = formData => {
   return {
     type:'UPDATED_DATA',formData
   }
@@ -35,7 +35,7 @@ export const createCampaigns = campaign =>{
     headers: {
       'Content-Type': 'application/json'
     },
-    data: JSON.stringify(campaign)})
+    body: JSON.stringify({campaign: campaign})})
     .then(response => response.json())
     .catch(error => console.log(error))
   }

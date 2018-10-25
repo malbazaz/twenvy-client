@@ -85,4 +85,4 @@ mapStateToProps = state => {
 //     }
 //   }
 
-export default connect(mapStateToProps, {updateCampaignFormData})(CampaignForm) 
+export default connect(mapStateToProps, {updateCampaignFormData, createCampaign})(CampaignForm) 
