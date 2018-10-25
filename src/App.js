@@ -3,8 +3,8 @@ import './App.css';
 import Campaigns from './containers/Campaigns'
 import Products from  './containers/Products'
 import {connect} from 'react-redux'
-import fetchCampaigns from './action/fetchCampaigns'
-import fetchProducts from './action/fetchProducts'
+import fetchCampaigns from './action/Campaigns'
+import fetchProducts from './action/Products'
 import productsReducer from './reducers/productsReducer'
 import campaignsReducer from './reducers/campaignsReducer'
 
