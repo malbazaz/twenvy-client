@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateCampaignFormData} from '../action/Campaigns'
+import {createCampaign} from '../action/Campaigns'
 
 class CampaignForm extends Component {
     // constructor() {
@@ -26,16 +27,16 @@ class CampaignForm extends Component {
     //     });
     //   };
 
-    //   handleSubmit = event => {
-    //     event.preventDefault();
-    //     this.props.createForm(this.state)
-    //     this.setState({
-    //         product_id: 0,
-    //         end_date: 0,
-    //         location: '',
-    //         target_qty: 0 
-    //     })
-    //   }
+      handleSubmit = event => {
+        event.preventDefault();
+        this.props.createCampaign(this.props.formData)
+        this.setState({
+            product_id: 0,
+            end_date: 0,
+            location: '',
+            target_qty: 0 
+        })
+      }
 
     render() {
 
@@ -84,4 +85,4 @@ mapStateToProps = state => {
 //     }
 //   }
 
-export default connect(mapStateToProps, {updateCampaignFormData)(CampaignForm) 
+export default connect(mapStateToProps, {updateCampaignFormData})(CampaignForm) 

@@ -28,4 +28,15 @@ export const updateCampaignFormData = formData = {
   }
 }
 
-  
+export const createCampaigns = campaign =>{
+  return dispatch => {
+    return fetch('http://localhost:3001/api/campaigns', {
+    method: "POST", 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: JSON.stringify(campaign)})
+    .then(response => response.json())
+    .catch(error => console.log(error))
+  }
+}
