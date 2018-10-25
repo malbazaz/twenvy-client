@@ -11,7 +11,7 @@
    return (dispatch) => {
       return fetch('http://localhost:3001/api/campaigns')
       .then(response => response.json())
-      .then(campaigns => dispatch(setCampaigns(campaigns)))
+      .then(campaigns =>dispatch(setCampaigns(campaigns)) )
       .catch(error => console.log(error))
     }
   }
@@ -28,7 +28,7 @@ export const updateCampaignFormData = formData => {
   }
 }
 
-export const createCampaigns = campaign =>{
+export const createCampaign = campaign =>{
   return dispatch => {
     return fetch('http://localhost:3001/api/campaigns', {
     method: "POST", 
@@ -37,6 +37,22 @@ export const createCampaigns = campaign =>{
     },
     body: JSON.stringify({campaign: campaign})})
     .then(response => response.json())
+    .then(campaign => {
+      dispatch(addCampaign(campaign))
+      dispatch(resetCampaignForm())
+    })
     .catch(error => console.log(error))
+  }
+}
+
+export const addCampaign = campaign => {
+  return {
+    type: 'CREATE_CAMPAIGN_SUCCESS', campaign
+  }
+}
+
+export const resetCampaignForm = () =>{
+  return {
+    type: 'RESET_CAMPAIGN_FORM'
   }
 }

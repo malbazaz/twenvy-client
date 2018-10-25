@@ -3,8 +3,8 @@ import './App.css';
 import Campaigns from './containers/Campaigns'
 import Products from  './containers/Products'
 import {connect} from 'react-redux'
-import fetchCampaigns from './action/Campaigns'
-import fetchProducts from './action/Products'
+import {fetchCampaigns} from './action/Campaigns'
+import {fetchProducts} from './action/Products'
 import productsReducer from './reducers/productsReducer'
 import campaignsReducer from './reducers/campaignsReducer'
 
@@ -36,16 +36,16 @@ class App extends Component {
   // }
   componentDidMount() {
     this.props.fetchCampaigns() 
-    this.props.fetchProducts()
+    // this.props.fetchProducts()
   }
 
   render() {
     return (
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
       <div className="App">
         App Container
-        <Products products={this.props.products} />
+        {/* <Products products={this.props.products} /> */}
         <Campaigns campaigns={this.props.campaigns}  />
 
       </div>
@@ -59,7 +59,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return({
     campaigns: state.campaigns, 
-    products: state.products
+    // products: state.products
   })
 }
 
@@ -70,10 +70,10 @@ const mapDispatchToProps = (dispatch) => {
        let action = fetchCampaigns()
        dispatch(action)
      },
-     fetchProducts: () =>{
-      let action = fetchProducts()
-      dispatch(action)
-     }
+    //  fetchProducts: () =>{
+    //   let action = fetchProducts()
+    //   dispatch(action)
+    //  }
     
   })
 }

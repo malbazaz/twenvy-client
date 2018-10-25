@@ -14,10 +14,13 @@ this.props.fetchCampaigns()
 
 
    render(){
+
        return(
         <div>
         <h3>Campaign Components</h3>
-        {this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaigns} />)}
+        {/* why is campaigns undefined??? props and this.props both don't work*/}
+        
+        {this.props && this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
         <CampaignForm />
     </div>
        )
@@ -26,7 +29,7 @@ this.props.fetchCampaigns()
 
 const mapStateToProps = (state) => {
     return({
-        campaigns: this.state.campaigns
+        campaigns: state.campaignsReducer
     })
 }
 export default connect(mapStateToProps, {fetchCampaigns})(Campaigns); 

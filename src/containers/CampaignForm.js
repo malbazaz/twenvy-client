@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {updateCampaignFormData} from '../action/Campaigns'
-import {createCampaign} from '../action/Campaigns'
+import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
 
 class CampaignForm extends Component {
     // constructor() {
@@ -41,7 +40,7 @@ class CampaignForm extends Component {
     render() {
 
         
-    const {product_id, end_date, location, target_qty, sold_qty} = this.props.formData
+    const {product_id, end_date, location, target_qty} = this.props.formData
 
         return (
             <div>
@@ -53,28 +52,28 @@ class CampaignForm extends Component {
                 </p>
                 <p>
                     <label>Enter the Campaign deadline</label>
-                    <input type='text' name="end_date" value={this.state.end_date} onChange={(event) => this.handleChange(event)}/>
+                    <input type='text' name="end_date" value={end_date} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
                     <label>Enter the Location</label>
-                    <input type='text' name="location" value={this.state.location} onChange={(event) => this.handleChange(event)}/>
+                    <input type='text' name="location" value={location} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
                     <label>Enter the Target Quantity </label>
-                    <input type='text' name="target_qty"value={this.state.target_qty} onChange={(event) => this.handleChange(event)}/>
+                    <input type='text' name="target_qty" value={target_qty} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <input type='submit' />
+                    <button type='submit' >Create a Campaign</button>
                 </p>
             </form>
-            {this.state.text}
+
             </div>
 
         )
     }
 }
 // mapStateToProps = ({campaigns}) => ({campaigns})
-mapStateToProps = state => {
+const mapStateToProps = state => {
     return {
         formData: state.formData
     }
