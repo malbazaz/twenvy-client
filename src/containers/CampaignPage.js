@@ -9,17 +9,18 @@ class CampaignPage extends Component{
  
 
 componentDidMount() {
-    this.props.fetchOneCampaign(this.props.state.campaign.id)
+    debugger;
+    this.props.fetchOneCampaign(this.props.match.params.id)
 }
 
 
    render(){
-
+        debugger;
        return(
         <div>
         <h3>Campaign Components</h3>
         {/* why it's not working?*/}
-        {/* <CampaignCard key={campaign.id} campaign={this.props.campaign} /> */}
+        {this.props.campaign.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
          <button onClick={updateCampaign}>Join Campaign</button>
     </div>
        )

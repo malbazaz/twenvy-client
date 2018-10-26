@@ -22,9 +22,9 @@
     }
   }
 
-  export const fetchOneCampaign = (campaign) =>{
+  export const fetchOneCampaign = (id) =>{
     return (dispatch) => {
-       return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`)
+       return fetch(`http://localhost:3001/api/campaigns/${id}`)
        .then(response => response.json())
        .then(campaign =>dispatch(setOneCampaign(campaign)) )
        .catch(error => console.log(error))

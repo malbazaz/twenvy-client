@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CampaignForm from './containers/CampaignForm'
 import Home from './components/Home'
 import CampaignPage from './containers/CampaignPage'
+import CampaignJoinForm from './containers/CampaignJoinForm'
 import productsReducer from './reducers/productsReducer'
 import campaignsReducer from './reducers/campaignsReducer'
 
@@ -31,10 +32,10 @@ class App extends Component {
         <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/create' component={CampaignForm} />
+              <Route exact path='/campaigns/:id' component={CampaignPage} />
               <Route path='/campaigns' component={Campaigns} />
               <Route path='/products' component={Products} />
-              <Route path='/join' component={CampaignPage} />
-              <Route path='/campaigns/:id' component={CampaignPage} />
+              <Route path='/join' component={CampaignJoinForm} />
         </Switch>
         </div>
         </Router>
