@@ -56,3 +56,23 @@ export const resetCampaignForm = () =>{
     type: 'RESET_CAMPAIGN_FORM'
   }
 }
+
+export const updateCampaign = campaign => {
+  return dispatch => {
+    return fetch(`http://localhost:3001/api/campaigns/${dinner.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ campaign })
+    })
+    .then(response => response.json())
+    .then(campaign => {
+      dispatch(joinCampaign(campaign));
+    }).catch(error => console.log(error));
+  };
+};
+
+export const joinCampaign = campaign => {
+  return { type: 'JOIN_CAMPAIGN_SUCCESS', campaign };
+};
