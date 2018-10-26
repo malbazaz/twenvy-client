@@ -3,7 +3,7 @@ import CampaignCard from '../components/CampaignCard'
 import {connect} from 'react-redux'
 import {updateCampaign} from '../action/Campaigns'
 
-class Campaigns extends Component{ 
+class CampaignPage extends Component{ 
 
  
 
@@ -25,12 +25,12 @@ componentDidMount() {
    } 
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return ({ campaign: state.campaignsReducer.find(campaign =>
-      campaign.id === Number(ownProps.match.params.campaignId))
-    });
+const mapStateToProps = (state) => {
+    // return ({ campaign: state.campaignsReducer.find(campaign =>
+    //   campaign.id === Number(ownProps.match.params.campaignId))
+    // });
   };
 
 
 
-export default connect(mapStateToProps, {updateCampaign})(Campaigns); 
+export default connect(mapStateToProps, {updateCampaign})(CampaignPage); 

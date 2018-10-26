@@ -34,6 +34,7 @@ class App extends Component {
               <Route path='/campaigns' component={Campaigns} />
               <Route path='/products' component={Products} />
               <Route path='/join' component={CampaignPage} />
+              <Route path='/campaigns/:id' component={CampaignPage} />
         </Switch>
         </div>
         </Router>
