@@ -45,7 +45,7 @@ class App extends Component {
         {/* <Navbar /> */}
       <div className="App">
         App Container
-        {/* <Products products={this.props.products} /> */}
+        <Products products={this.props.products} />
         <Campaigns campaigns={this.props.campaigns}  />
 
       </div>
@@ -57,9 +57,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+  debugger;
   return({
-    campaigns: state.campaigns, 
-    // products: state.products
+    campaigns: state.campaignsReducer, 
+    products: state.productsReducer
   })
 }
 
@@ -70,10 +71,10 @@ const mapDispatchToProps = (dispatch) => {
        let action = fetchCampaigns()
        dispatch(action)
      },
-    //  fetchProducts: () =>{
-    //   let action = fetchProducts()
-    //   dispatch(action)
-    //  }
+     fetchProducts: () =>{
+      let action = fetchProducts()
+      dispatch(action)
+     }
     
   })
 }
