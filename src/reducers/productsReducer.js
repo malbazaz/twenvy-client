@@ -1,7 +1,7 @@
 const productsReducer = (state = [], action) =>{
     switch(action.type){
-        case 'SHOW_PRODUCT':
-            return action.show 
+        case 'GET_PRODUCTS_SUCCESS':
+            return  state.concat(action.products)
         default:
             return state;
     }

@@ -1,22 +1,28 @@
-// import React, {Component} from 'react';
-// import ProductCard from '../components/productCard'
-// import {connect} from 'react-redux'
+import React, {Component} from 'react';
+import {ProductCard} from '../components/ProductCard'
+import {connect} from 'react-redux'
+import {fetchProducts} from '../action/Products'
 
-// class Products extends Component{ 
-//    render(){
-//        return(
-//         <div>
-//         <h3>Product Components</h3>
-//         {this.props.products.map(product => <ProductCard key={product.id} product={product} />)}
-//         <productForm />
-//     </div>
-//        )
-//    } 
-// }
+class Products extends Component{
 
-// const mapStateToProps = (state) => {
-//     return({
-//         products: this.state.products
-//     })
-// }
-// export default connect(mapStateToProps)(products); 
+    
+componentDidMount() {
+    this.props.fetchProducts()
+    }
+    
+   render(){
+       return(
+        <div>
+        <h3>Product Components</h3>
+        {this.props && this.props.products.map(product => <ProductCard key={product.id} product={product} />)}
+    </div>
+       )
+   } 
+}
+
+const mapStateToProps = (state) => {
+    return({
+        products: state.productsReducer
+    })
+}
+export default connect(mapStateToProps, {fetchProducts})(Products); 
