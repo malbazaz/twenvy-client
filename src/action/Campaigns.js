@@ -68,6 +68,7 @@ export const updateCampaign = campaign => {
     })
     .then(response => response.json())
     .then(campaign => {
+      debugger;
       dispatch(joinCampaign(campaign));
     }).catch(error => console.log(error));
   };
