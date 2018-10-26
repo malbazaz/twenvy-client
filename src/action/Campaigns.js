@@ -22,20 +22,20 @@
     }
   }
 
-  // export const fetchOneCampaign = () =>{
-  //   return (dispatch) => {
-  //      return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`)
-  //      .then(response => response.json())
-  //      .then(campaigns =>dispatch(setOneCampaign(campaign)) )
-  //      .catch(error => console.log(error))
-  //    }
-  //  }
+  export const fetchOneCampaign = (campaign) =>{
+    return (dispatch) => {
+       return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`)
+       .then(response => response.json())
+       .then(campaign =>dispatch(setOneCampaign(campaign)) )
+       .catch(error => console.log(error))
+     }
+   }
  
-  // export const setOneCampaigns = campaign =>{
-  //    return {
-  //      type: 'GET_ONE_CAMPAIGN_SUCCESS', campaign
-  //    }
-  //  }
+  export const setOneCampaign = (campaign) =>{
+     return {
+       type: 'GET_ONE_CAMPAIGN_SUCCESS', campaign
+     }
+   }
 
 
 export const updateCampaignFormData = formData => {

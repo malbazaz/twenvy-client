@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import CampaignCard from '../components/CampaignCard'
 import {connect} from 'react-redux'
 import {updateCampaign} from '../action/Campaigns'
+import {fetchOneCampaign} from '../action/Campaigns'
 
 class CampaignPage extends Component{ 
 
  
 
 componentDidMount() {
-
+    this.props.fetchOneCampaign(this.props.state.campaign.id)
 }
 
 
@@ -26,11 +27,12 @@ componentDidMount() {
 }
 
 const mapStateToProps = (state) => {
-    // return ({ campaign: state.campaignsReducer.find(campaign =>
-    //   campaign.id === Number(ownProps.match.params.campaignId))
-    // });
+    debugger;
+    return({
+        campaign: state.campaignsReducer
+    })
   };
 
 
 
-export default connect(mapStateToProps, {updateCampaign})(CampaignPage); 
+export default connect(mapStateToProps, {fetchOneCampaign, updateCampaign})(CampaignPage); 

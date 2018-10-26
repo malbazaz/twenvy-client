@@ -10,6 +10,8 @@ const campaignsReducer = (state = [], action) =>{
             const index = state.findIndex(campaign => campaign.id === action.campaign.id);
             return [...state.slice(0, index), action.campaign, ...state.slice(index+1)]
         }
+        case 'GET_ONE_CAMPAIGN_SUCCESS':
+            return state.concat(action.campaign)
         default:
             return state;
     }
