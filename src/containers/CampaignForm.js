@@ -3,15 +3,7 @@ import {connect} from 'react-redux'
 import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
 
 class CampaignForm extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //       product_id: 0,
-    //       end_date: 0,
-    //       location: '',
-    //       target_qty: 0
-    //     };
-    //   }
+
     handleChange = event =>{
         const {name, value} = event.target;
         const currentFormData = Object.assign({}, this.props.formData, {
@@ -20,12 +12,6 @@ class CampaignForm extends Component {
         this.props.updateCampaignFormData(currentFormData)
     }
        
-    //   handleChange(event) {
-    //     this.setState({
-    //       text: event.target.value
-    //     });
-    //   };
-
       handleSubmit = event => {
         event.preventDefault();
         this.props.createCampaign(this.props.formData)
@@ -72,16 +58,12 @@ class CampaignForm extends Component {
         )
     }
 }
-// mapStateToProps = ({campaigns}) => ({campaigns})
+
 const mapStateToProps = state => {
     return {
         formData: state.formData
     }
 }
-// mapDispatchToProps = dispatch => {
-//     return {
-//       createForm: formData => dispatch({type: 'ADD_CAMPAIGN', payload: formData})
-//     }
-//   }
+
 
 export default connect(mapStateToProps, {updateCampaignFormData, createCampaign})(CampaignForm) 

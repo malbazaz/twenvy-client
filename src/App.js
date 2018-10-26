@@ -57,7 +57,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-  debugger;
+  // debugger;
   return({
     campaigns: state.campaignsReducer, 
     products: state.productsReducer
