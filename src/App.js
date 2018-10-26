@@ -6,6 +6,8 @@ import {connect} from 'react-redux'
 import {fetchCampaigns} from './action/Campaigns'
 import {fetchProducts} from './action/Products'
 import MainNavbar from './components/MainNavbar'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import CampaignForm from './containers/CampaignForm'
 import productsReducer from './reducers/productsReducer'
 import campaignsReducer from './reducers/campaignsReducer'
 
@@ -43,13 +45,23 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Router>
+          <div>
         <MainNavbar />
-      <div className="App">
+        <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/create' component={CampaignForm} />
+              <Route path='/campaigns' component={Campaigns} />
+              <Route path='/products' component={Products} />
+        </Switch>
+        </div>
+        </Router>
+      {/* <div className="App">
         App Container
         <Products products={this.props.products} />
         <Campaigns campaigns={this.props.campaigns}  />
 
-      </div>
+      </div> */}
       </div>
  
 
