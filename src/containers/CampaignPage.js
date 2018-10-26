@@ -18,7 +18,7 @@ componentDidMount() {
        return(
         <div>
         <h3>Campaign Components</h3>
-        {/* why is campaigns undefined??? props and this.props both don't work*/}
+        {/* why it's not working?*/}
         {/* <CampaignCard key={campaign.id} campaign={this.props.campaign} /> */}
          <button onClick={updateCampaign}>Join Campaign</button>
     </div>

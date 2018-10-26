@@ -18,8 +18,6 @@ this.props.fetchCampaigns()
        return(
         <div>
         <h3>Campaign Components</h3>
-        {/* why is campaigns undefined??? props and this.props both don't work*/}
-        
         {this.props && this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
     </div>
        )

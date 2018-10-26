@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Link} from 'react-router-dom'
 
-const link = "https://localhost:3000/campaigns/"
+
 
 const CampaignCard = ({campaign}) => (
 <div key={campaign.id} className="CampaignCard">
