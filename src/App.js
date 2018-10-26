@@ -8,6 +8,7 @@ import {fetchProducts} from './action/Products'
 import MainNavbar from './components/MainNavbar'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CampaignForm from './containers/CampaignForm'
+import Home from './components/Home'
 import productsReducer from './reducers/productsReducer'
 import campaignsReducer from './reducers/campaignsReducer'
 
