@@ -5,6 +5,7 @@ import Products from  './containers/Products'
 import {connect} from 'react-redux'
 import {fetchCampaigns} from './action/Campaigns'
 import {fetchProducts} from './action/Products'
+import MainNavbar from './components/MainNavbar'
 import productsReducer from './reducers/productsReducer'
 import campaignsReducer from './reducers/campaignsReducer'
 
@@ -42,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <Navbar /> */}
+        <MainNavbar />
       <div className="App">
         App Container
         <Products products={this.props.products} />
