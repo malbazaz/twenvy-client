@@ -21,7 +21,6 @@ this.props.fetchCampaigns()
         {/* why is campaigns undefined??? props and this.props both don't work*/}
         
         {this.props && this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
-        <CampaignForm />
     </div>
        )
    } 
