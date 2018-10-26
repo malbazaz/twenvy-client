@@ -59,7 +59,7 @@ export const resetCampaignForm = () =>{
 
 export const updateCampaign = campaign => {
   return dispatch => {
-    return fetch(`http://localhost:3001/api/campaigns/${dinner.id}`, {
+    return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
