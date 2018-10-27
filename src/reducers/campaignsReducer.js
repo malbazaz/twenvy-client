@@ -9,7 +9,7 @@ const campaignsReducer = (state = [], action) =>{
         case 'CREATE_CAMPAIGN_SUCCESS':
             return state.concat(action.campaign)
         case 'JOIN_CAMPAIGN_SUCCESS':{
-            return {...state, sold_qty: action.campaign.sold_qty+1}
+            return {...state, sold_qty: state.campaign.sold_qty+1}
         }
         case 'GET_ONE_CAMPAIGN_SUCCESS':
         return  {...state, campaign: action.campaign}

@@ -3,10 +3,11 @@ import {connect} from 'react-redux'
 import {fetchOneCampaign} from '../action/Campaigns'
 import CampaignCard from '../components/CampaignCard'
 
-class CampaignForm extends Component {
+class CampaignJoinForm extends Component {
 
       state = {
-        campaignId: ''
+        campaignId: '',
+        campaign: []
       }
      
       handleChange = event => {
@@ -36,7 +37,7 @@ class CampaignForm extends Component {
            </form>
          </div>
          <div>
-             {this.props.campaign && <CampaignCard key={this.props.campaign.id} campaign={this.props.campaign} />}
+             {this.props.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
          </div>
          </div>
        );
@@ -49,4 +50,4 @@ class CampaignForm extends Component {
         }
     }
 
-    export default connect(mapStateToProps,{fetchOneCampaign})(CampaignForm);
+    export default connect(mapStateToProps,{fetchOneCampaign})(CampaignJoinForm);

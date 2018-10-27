@@ -74,7 +74,10 @@ export const resetCampaignForm = () =>{
 }
 
 export const updateCampaign = campaign => {
+campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
+debugger;
   return dispatch => {
+    debugger;
     return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
       method: 'PUT',
       headers: {
@@ -83,13 +86,16 @@ export const updateCampaign = campaign => {
       body: JSON.stringify({ campaign })
     })
     .then(response => response.json())
-    .then(campaign => {
-      debugger;
-      dispatch(joinCampaign(campaign));
-    }).catch(error => console.log(error));
   };
 };
 
-export const joinCampaign = campaign => {
-  return { type: 'JOIN_CAMPAIGN_SUCCESS', campaign };
+export const editCampaign = campaign => {
+  return { 
+    type: 'JOIN_CAMPAIGN_SUCCESS', campaign
+   }
 };
+
+export const newUpdate = (campaign) =>{
+  editCampaign(campaign);
+  updateCampaign(campaign);
+}
