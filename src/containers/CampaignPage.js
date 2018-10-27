@@ -12,8 +12,23 @@ class CampaignPage extends Component{
 
 componentDidMount() {
      this.props.fetchOneCampaign(this.props.match.params.id)
+
 }
 
+// componentDidUpdate(previousProps, previousState) {
+//     debugger;
+//     if(previousProps.campaign.campaign){
+//       debugger;
+//     if (previousProps.campaign.campaign.sold_qty !== this.props.campaign.campaign.sold_qty) {
+//       debugger;
+//         this.setState({campaign: this.props.campaign.campaign})
+//     }
+//   }
+// }
+// handleClick = () =>{
+//     updateCampaign(this.props.campaign.campaign)
+//         this.setState({campaign: this.props.campaign.campaign})
+// }
 
    render(){
 

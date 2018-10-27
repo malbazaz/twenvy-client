@@ -23,16 +23,16 @@ class CampaignJoinForm extends Component {
         this.props.fetchOneCampaign(this.state.campaignId)
       }
 
-      componentDidUpdate(previousProps, previousState) {
-        debugger;
-        if(previousProps.campaign.campaign){
-          debugger;
-        if (previousProps.campaign.campaign.sold_qty !== this.props.campaign.campaign.sold_qty) {
-          debugger;
-            this.setState({campaign: this.props.campaign.campaign})
-        }
-      }
-    }
+    //   componentDidUpdate(previousProps, previousState) {
+    //     // debugger;
+    //     if(previousProps.campaign.campaign){
+    //       // debugger;
+    //     if (previousProps.campaign.campaign.sold_qty !== this.props.campaign.campaign.sold_qty) {
+    //       // debugger;
+    //         this.setState({campaign: this.props.campaign.campaign})
+    //     }
+    //   }
+    // }
      
       render() {
           // debugger;
