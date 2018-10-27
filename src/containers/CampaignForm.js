@@ -3,6 +3,18 @@ import {connect} from 'react-redux'
 import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
 
 class CampaignForm extends Component {
+    //       handleSelect = event => {
+//         var options = event.target.options;
+//         var value = [];
+//         for (var i = 0, l = options.length; i < l; i++) {
+//           if (options[i].selected) {
+//           value = options[i].value;
+//     } }
+//       this.setState({
+//         campaignId: value
+//       })
+
+// }
 
     handleChange = event =>{
         const {name, value} = event.target;
@@ -52,7 +64,9 @@ class CampaignForm extends Component {
                     <button type='submit' >Create a Campaign</button>
                 </p>
             </form>
-
+          {/* <select>
+           {this.props.campaigns && this.props.campaigns.map(campaign=> <option value={campaign.id}>{campaign.id}</option>)}
+          </select> */}
             </div>
 
         )
