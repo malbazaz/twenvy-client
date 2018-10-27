@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchOneCampaign} from '../action/Campaigns'
 import CampaignCard from '../components/CampaignCard'
+import {updateCampaign} from '../action/Campaigns'
 
 class CampaignJoinForm extends Component {
 
@@ -39,6 +40,7 @@ class CampaignJoinForm extends Component {
          </div>
          <div>
              {this.props.campaign.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
+             {this.props.campaign.campaign && <button onClick={updateCampaign(this.props.campaign.campaign)}>Join Campaign</button>}
          </div>
          </div>
        );
@@ -52,4 +54,4 @@ class CampaignJoinForm extends Component {
         })
     }
 
-    export default connect(mapStateToProps,{fetchOneCampaign})(CampaignJoinForm);
+    export default connect(mapStateToProps,{fetchOneCampaign, updateCampaign})(CampaignJoinForm);
