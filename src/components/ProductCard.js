@@ -1,14 +1,24 @@
 import React from 'react';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Row, Col, CardHeader } from 'reactstrap'
 
 export const ProductCard = ({product}) => (
 <div key={product.id} className="ProductCard">
-<h3>Name: {product.name}</h3>
-    <h3>Model: {product.model}</h3>
-    <h3>Description: {product.description}</h3>
-    <h3>brand: {product.target_qty}</h3>
-    <h3>image_url: {product.sold_qty}</h3>
-    <h3>price: ${product.price}</h3>
+<Row>
+<Col sm="6">
+<Card body outline color="primary">
+<CardHeader inverse color="primary">Name: {product.name}</CardHeader>
+<CardBody>
+<CardSubtitle>Product Brand: {product.brand} </CardSubtitle>
+<CardText>Model: {product.model}</CardText>
+<CardText>Description: {product.description}</CardText>
+<CardText>price: ${product.price}</CardText>
+{/* <CardText>image_url: {product.sold_qty}</CardText> */}
+<CardText>Number of Campaigns for Product: {product.campaigns.length}</CardText>
+</CardBody>
+</Card>
+</Col>
+</Row>  
 </div>
 
 )
-
