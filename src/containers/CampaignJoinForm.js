@@ -18,6 +18,7 @@ class CampaignJoinForm extends Component {
      
       handleSubmit = event => {
         event.preventDefault()
+        debugger;
         this.props.fetchOneCampaign(this.state.campaignId)
       }
      
@@ -37,7 +38,7 @@ class CampaignJoinForm extends Component {
            </form>
          </div>
          <div>
-             {this.props.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
+             {this.props.campaign.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
          </div>
          </div>
        );
@@ -45,9 +46,10 @@ class CampaignJoinForm extends Component {
     };
     
     const mapStateToProps = state => {
-        return {
-            campaignId: state.campaignId
-        }
+        return ({
+            campaignId: state.campaignId,
+            campaign: state.campaignsReducer
+        })
     }
 
     export default connect(mapStateToProps,{fetchOneCampaign})(CampaignJoinForm);

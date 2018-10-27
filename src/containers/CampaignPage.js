@@ -16,7 +16,7 @@ componentDidMount() {
 
 
    render(){
-       debugger;
+
        return(
         <div>
         <h3>Campaign Components</h3>
