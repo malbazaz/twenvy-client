@@ -75,9 +75,9 @@ export const resetCampaignForm = () =>{
 
 export const updateCampaign = campaign => {
 campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
-debugger;
+
   return dispatch => {
-    debugger;
+ 
     return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
       method: 'PUT',
       headers: {

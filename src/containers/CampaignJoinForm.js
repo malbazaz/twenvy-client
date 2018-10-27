@@ -19,12 +19,23 @@ class CampaignJoinForm extends Component {
      
       handleSubmit = event => {
         event.preventDefault()
-        debugger;
+        // debugger;
         this.props.fetchOneCampaign(this.state.campaignId)
       }
+
+      componentDidUpdate(previousProps, previousState) {
+        debugger;
+        if(previousProps.campaign.campaign){
+          debugger;
+        if (previousProps.campaign.campaign.sold_qty !== this.props.campaign.campaign.sold_qty) {
+          debugger;
+            this.setState({campaign: this.props.campaign.campaign})
+        }
+      }
+    }
      
       render() {
-          debugger;
+          // debugger;
         return(
             <div>
           <div>
