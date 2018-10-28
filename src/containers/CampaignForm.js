@@ -36,7 +36,7 @@ class CampaignForm extends Component {
       }
 
     render() {
-
+        debugger;
         
     const {product_id, end_date, location, target_qty} = this.props.formData
 
