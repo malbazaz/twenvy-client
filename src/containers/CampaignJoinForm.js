@@ -6,6 +6,7 @@ import {updateCampaign} from '../action/Campaigns'
 // import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import {fetchCampaigns} from '../action/Campaigns'
 import { timeoutsShape } from 'reactstrap';
+import Title from '../components/Title'
 
 class CampaignJoinForm extends Component {
 
@@ -46,7 +47,8 @@ class CampaignJoinForm extends Component {
       render() {
           debugger;
         return(
-            <div>
+            <div class="center-div">
+              <Title text="Search a Campaign" />
           <div>
             <p>Write Down the CampaignId of the Campaign you would like to See and potentially Join </p>
             <p>You can choose any number between 1 and {this.props.campaign.length}</p>

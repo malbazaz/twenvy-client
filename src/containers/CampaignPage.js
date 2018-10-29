@@ -5,6 +5,7 @@ import {updateCampaign, joinCampaign} from '../action/Campaigns'
 import {fetchOneCampaign} from '../action/Campaigns'
 import {editCampaign} from '../action/Campaigns'
 import {newUpdate} from '../action/Campaigns'
+// import Title from '../components/Title'
 
 class CampaignPage extends Component{ 
 
@@ -33,8 +34,7 @@ componentDidMount() {
    render(){
 
        return(
-        <div>
-        <h3>Campaign Components</h3>
+        <div class="center-div">
         {/* why it's not working?*/}
         {this.props.campaign.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
         {this.props.campaign.campaign && <button onClick={updateCampaign(this.props.campaign.campaign)}>Join Campaign</button>}

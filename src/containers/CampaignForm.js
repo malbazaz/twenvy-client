@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
+import Title from '../components/Title'
 
 class CampaignForm extends Component {
 
@@ -43,7 +44,7 @@ class CampaignForm extends Component {
 
         return (
             <div class="center-div">
-               <title>Create a Campaign </title> 
+               <Title text="Create a Campaign" />
             <form onSubmit={ event => this.handleSubmit(event) }>
                 <p>
                     <label><strong>Enter the Product Id</strong></label>

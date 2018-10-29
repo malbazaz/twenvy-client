@@ -3,6 +3,7 @@ import CampaignForm from './CampaignForm'
 import CampaignCard from '../components/CampaignCard'
 import {connect} from 'react-redux'
 import {fetchCampaigns} from '../action/Campaigns'
+import Title from '../components/Title'
 
 class Campaigns extends Component{ 
 
@@ -17,7 +18,7 @@ this.props.fetchCampaigns()
 
        return(
         <div class="center-div">
-        <h3>Campaign Components</h3>
+        <Title text="Campaigns"/>
         {this.props && this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
     </div>
        )
