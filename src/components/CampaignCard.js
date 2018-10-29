@@ -9,13 +9,14 @@ const CampaignCard = ({campaign}) => (
 
 <div key={campaign.id} className="CampaignCard">
 <Row>
-<Col xs="4" sm="4">
+<Col xs="4" sm="6">
 <Card body outline color="primary">
 <CardHeader inverse color="primary"><Link to={`/campaigns/${campaign.id}`}> Campaign Number: {campaign.id}</Link></CardHeader>
     <CardBody>
 <CardTitle>Product Name: {campaign.product.name} </CardTitle>
     <CardSubtitle><strong>Product Brand:</strong> {campaign.product_id}</CardSubtitle>
     <CardText><strong>Product Description: </strong>{campaign.product.description}</CardText>
+    <img width="100%" src={campaign.product.image_url} alt="Card image cap" />
     <CardText><strong>End date: </strong> {campaign.end_date}</CardText>
     <CardText><strong>location: </strong> {campaign.location}</CardText>
     <CardText><strong>Target Qty: </strong> {campaign.target_qty}</CardText>

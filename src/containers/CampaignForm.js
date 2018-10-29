@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
 
 class CampaignForm extends Component {
+
+
     //       handleSelect = event => {
 //         var options = event.target.options;
 //         var value = [];
@@ -40,23 +42,27 @@ class CampaignForm extends Component {
     const {product_id, end_date, location, target_qty} = this.props.formData
 
         return (
-            <div>
-                Create a Campaign
+            <div class="center-div">
+               <title>Create a Campaign </title> 
             <form onSubmit={ event => this.handleSubmit(event) }>
                 <p>
-                    <label>Enter the Product Id</label>
+                    <label><strong>Enter the Product Id</strong></label>
+                    <br/>
                     <input type='text' name="product_id" value={product_id} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <label>Enter the Campaign deadline</label>
+                    <label>Enter the Campaign deadline  </label>
+                    <br></br>
                     <input type='text' name="end_date" value={end_date} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <label>Enter the Location</label>
+                    <label>Enter the Location  </label>
+                    <br/>
                     <input type='text' name="location" value={location} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <label>Enter the Target Quantity </label>
+                    <label>Enter the Target Quantity  </label>
+                    <br/>
                     <input type='text' name="target_qty" value={target_qty} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
