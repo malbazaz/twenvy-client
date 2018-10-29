@@ -20,6 +20,16 @@ class CampaignForm extends Component {
 //       })
 
 // }
+
+handleSelect = (event) => {
+   
+    const currentFormData = Object.assign({}, this.props.formData, {
+        product_id: event.target.selectedIndex+1
+    })
+    this.props.updateCampaignFormData(currentFormData)
+    }
+
+
 componentDidMount(){
     this.props.fetchProducts()
 }
@@ -34,6 +44,7 @@ componentDidMount(){
        
       handleSubmit = event => {
         event.preventDefault();
+        debugger;
         this.props.createCampaign(this.props.formData)
         this.setState({
             product_id: 0,
@@ -46,19 +57,18 @@ componentDidMount(){
     render() {
         
     const {product_id, end_date, location, target_qty} = this.props.formData
-        debugger;
         return (
             <div class="center-div">
                <Title text="Create a Campaign" />
             <form onSubmit={ event => this.handleSubmit(event) }>
-                <p>
+                {/* <p>
                     <label><strong>Enter the Product Id</strong></label>
                     <br/>
                     <input type='text' name="product_id" value={product_id} onChange={(event) => this.handleChange(event)}/>
-                </p>
-                <p> <label>Choose a Product</label>                  
-                    <select>
-                    {this.props.products.map(product =>(<option name="product_id" value={product.id} onChange={(event) => this.handleChange(event)}>{product.name}</option>))}
+                </p> */}
+                <p> <label><strong>Choose a Product</strong></label><br/>                  
+                    <select id="selectBox" onChange={(event) => this.handleSelect(event)}>
+                    {this.props.products.map(product =>(<option name="product_id" value={product.id} >{product.name}</option>))}
                     </select>
                 </p>
                 <p>
