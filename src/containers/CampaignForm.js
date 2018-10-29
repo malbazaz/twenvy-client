@@ -44,7 +44,6 @@ componentDidMount(){
        
       handleSubmit = event => {
         event.preventDefault();
-        debugger;
         this.props.createCampaign(this.props.formData)
         this.setState({
             product_id: 0,

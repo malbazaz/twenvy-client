@@ -19,7 +19,7 @@ import campaignsReducer from './reducers/campaignsReducer'
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchCampaigns() 
+    // this.props.fetchCampaigns() 
     // this.props.fetchProducts()
   }
 
