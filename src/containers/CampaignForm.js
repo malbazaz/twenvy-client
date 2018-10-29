@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
 import Title from '../components/Title'
+// import {FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
+import {fetchProducts} from '../action/Products'
 
 class CampaignForm extends Component {
 
@@ -18,6 +20,9 @@ class CampaignForm extends Component {
 //       })
 
 // }
+componentDidMount(){
+    this.props.fetchProducts()
+}
 
     handleChange = event =>{
         const {name, value} = event.target;
@@ -41,7 +46,7 @@ class CampaignForm extends Component {
     render() {
         
     const {product_id, end_date, location, target_qty} = this.props.formData
-
+        debugger;
         return (
             <div class="center-div">
                <Title text="Create a Campaign" />
@@ -50,6 +55,11 @@ class CampaignForm extends Component {
                     <label><strong>Enter the Product Id</strong></label>
                     <br/>
                     <input type='text' name="product_id" value={product_id} onChange={(event) => this.handleChange(event)}/>
+                </p>
+                <p> <label>Choose a Product</label>                  
+                    <select>
+                    {this.props.products.map(product =>(<option name="product_id" value={product.id} onChange={(event) => this.handleChange(event)}>{product.name}</option>))}
+                    </select>
                 </p>
                 <p>
                     <label><strong>Enter the Campaign deadline</strong></label>
@@ -81,9 +91,10 @@ class CampaignForm extends Component {
 
 const mapStateToProps = state => {
     return {
-        formData: state.formData
+        formData: state.formData, 
+        products: state.productsReducer
     }
 }
 
 
-export default connect(mapStateToProps, {updateCampaignFormData, createCampaign})(CampaignForm) 
+export default connect(mapStateToProps, {updateCampaignFormData,fetchProducts, createCampaign})(CampaignForm) 

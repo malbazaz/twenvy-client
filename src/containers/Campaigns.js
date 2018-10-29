@@ -19,6 +19,7 @@ this.props.fetchCampaigns()
        return(
         <div class="center-div">
         <Title text="Campaigns"/>
+        <br/>
         {this.props && this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
     </div>
        )
