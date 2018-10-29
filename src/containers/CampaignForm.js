@@ -52,17 +52,17 @@ class CampaignForm extends Component {
                     <input type='text' name="product_id" value={product_id} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <label>Enter the Campaign deadline  </label>
+                    <label><strong>Enter the Campaign deadline</strong></label>
                     <br></br>
                     <input type='text' name="end_date" value={end_date} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <label>Enter the Location  </label>
+                    <label><strong>Enter the Location</strong></label>
                     <br/>
                     <input type='text' name="location" value={location} onChange={(event) => this.handleChange(event)}/>
                 </p>
                 <p>
-                    <label>Enter the Target Quantity  </label>
+                    <label><strong>Enter the Target Quantity</strong></label>
                     <br/>
                     <input type='text' name="target_qty" value={target_qty} onChange={(event) => this.handleChange(event)}/>
                 </p>
