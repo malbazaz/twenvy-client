@@ -62,7 +62,7 @@ export default class MainNavbar extends Component {
                   <NavLink href="/create">Create a Campaign</NavLink>  
                   </DropdownItem>
                   <DropdownItem>
-                  <NavLink href="/join">Join a Campaign</NavLink>  
+                  <NavLink href="/join">Search and Join a Campaign</NavLink>  
                   </DropdownItem>
                   <DropdownItem divider />
                 </DropdownMenu>
