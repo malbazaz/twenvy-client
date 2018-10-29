@@ -5,7 +5,7 @@ import { Card, CardImg, CardText, CardBody,
 export const ProductCard = ({product}) => (
 <div key={product.id} className="ProductCard">
 <Row>
-<Col sm="6">
+<Col xs="4" sm="6">
 <Card body outline color="primary">
 <CardHeader inverse color="primary">Name: {product.name}</CardHeader>
 <CardBody>
@@ -13,12 +13,13 @@ export const ProductCard = ({product}) => (
 <CardText>Model: {product.model}</CardText>
 <CardText>Description: {product.description}</CardText>
 <CardText>price: ${product.price}</CardText>
-{/* <CardText>image_url: {product.sold_qty}</CardText> */}
+<img width="100%" src={product.image_url} alt="Card image cap" />
 <CardText>Number of Campaigns for Product: {product.campaigns.length}</CardText>
 </CardBody>
 </Card>
 </Col>
-</Row>  
+</Row> 
+<br/> 
 </div>
 
 )

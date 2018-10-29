@@ -16,7 +16,7 @@ this.props.fetchCampaigns()
    render(){
 
        return(
-        <div>
+        <div class="center-div">
         <h3>Campaign Components</h3>
         {this.props && this.props.campaigns.map(campaign => <CampaignCard key={campaign.id} campaign={campaign} />)}
     </div>

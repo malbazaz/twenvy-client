@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+
+.center-div
+{
+  position: absolute;
+  margin: auto;
+  width: 98%;
+  padding:60px;
+}

@@ -12,8 +12,9 @@ componentDidMount() {
     
    render(){
        return(
-        <div>
+        <div class="center-div">
         <h3>Product Components</h3>
+        <br/>
         {this.props && this.props.products.map(product => <ProductCard key={product.id} product={product} />)}
     </div>
        )
