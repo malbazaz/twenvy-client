@@ -14,6 +14,10 @@ class CampaignJoinForm extends Component {
         campaignId: '',
         campaign: []
       }
+
+      componentDidMount(){
+        this.props.fetchCampaigns()
+      }
      
       handleChange = event => {
         this.setState({
@@ -51,7 +55,7 @@ class CampaignJoinForm extends Component {
               <Title text="Search a Campaign" />
           <div>
             <p>Write Down the CampaignId of the Campaign you would like to See and potentially Join </p>
-            <p>You can choose any number between 1 and {this.props.campaign.length}</p>
+            <p>You can choose any number between 1 and {this.props.campaigns.length}</p>
             <form onSubmit={ (event) => this.handleSubmit(event) }>
               <p>
                 <label>Campaign Number</label>
@@ -73,7 +77,6 @@ class CampaignJoinForm extends Component {
     };
     
     const mapStateToProps = state => {
-      debugger;
         return ({
             campaignId: state.campaignId,
             campaign: state.campaignsReducer,
