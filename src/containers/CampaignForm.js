@@ -2,23 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateCampaignFormData, createCampaign} from '../action/Campaigns'
 import Title from '../components/Title'
-// import {FormGroup, ControlLabel, FormControl} from 'react-bootstrap'
 import {fetchProducts} from '../action/Products'
 
 class CampaignForm extends Component {
 
-//       handleSelect = event => {
-//         var options = event.target.options;
-//         var value = [];
-//         for (var i = 0, l = options.length; i < l; i++) {
-//           if (options[i].selected) {
-//           value = options[i].value;
-//     } }
-//       this.setState({
-//         campaignId: value
-//       })
-
-// }
 
 handleSelect = (event) => {
    
@@ -59,11 +46,6 @@ componentDidMount(){
             <div class="center-div">
                <Title text="Create a Campaign" />
             <form onSubmit={ event => this.handleSubmit(event) }>
-                {/* <p>
-                    <label><strong>Enter the Product Id</strong></label>
-                    <br/>
-                    <input type='text' name="product_id" value={product_id} onChange={(event) => this.handleChange(event)}/>
-                </p> */}
                 <p> <label><strong>Choose a Product</strong></label><br/>                  
                     <select id="selectBox" onChange={(event) => this.handleSelect(event)}>
                     {this.props.products.map(product =>(<option name="product_id" value={product.id} >{product.name}</option>))}
@@ -88,9 +70,7 @@ componentDidMount(){
                     <button type='submit' >Create a Campaign</button>
                 </p>
             </form>
-          {/* <select>
-           {this.props.campaigns && this.props.campaigns.map(campaign=> <option value={campaign.id}>{campaign.id}</option>)}
-          </select> */}
+
             </div>
 
         )
@@ -106,3 +86,4 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, {updateCampaignFormData,fetchProducts, createCampaign})(CampaignForm) 
+

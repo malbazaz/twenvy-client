@@ -1,12 +1,3 @@
-// export default function fetchCampaigns() {
-//     return (dispatch) => {
-//       dispatch({ type: 'START_ADDING_CAMPAIGNS_REQUEST' });
-//       return   fetch(`http://localhost:3001/api/campaigns`)
-//       .then(response => response.json())
-//         .then(campaigns => dispatch({ type: 'ADD_CAMPAIGNS', campaigns }));
-//     };
-//   }
-
 
  export const fetchCampaigns = () =>{
    return (dispatch) => {
@@ -78,12 +69,11 @@ export const editCampaign = campaign => {
 return  { 
 type: 'UP_CAMPAIGN_SUCCESS', campaign
  }
-
 };
 
 export async function updateCampaign2(campaign){
 campaign = {...campaign, sold_qty: campaign.sold_qty+1}
-debugger;
+// debugger;
 let response = await fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
   method: 'PUT',
   headers: {
@@ -92,13 +82,12 @@ let response = await fetch(`http://localhost:3001/api/campaigns/${campaign.id}`,
   body: JSON.stringify({ campaign })
 })
 let json = await response.json()
-debugger;
+// debugger;
 }
 
 export const updateCampaign = campaign => {
 campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
 
-// debugger;
   return dispatch => {
     return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
       method: 'PUT',
@@ -108,6 +97,5 @@ campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
       body: JSON.stringify({ campaign })
     })
     .then(response => response.json())
-    // .then(editCampaign(campaign))
   };
 };

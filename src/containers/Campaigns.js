@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import CampaignForm from './CampaignForm'
 import CampaignCard from '../components/CampaignCard'
 import {connect} from 'react-redux'
 import {fetchCampaigns} from '../action/Campaigns'
