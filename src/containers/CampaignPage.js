@@ -28,18 +28,17 @@ componentDidMount() {
 // }
 
 
-handleClick = e =>{
+handleClick = async e =>{
     e.preventDefault()
     let newOne = this.props.campaign.campaign
-     const hello= async (newOne)=>{
          debugger;
-        updateCampaign2(this.props.campaign.campaign)
+        let myhello = await updateCampaign2(this.props.campaign.campaign)
         debugger;
-        let hello = await setOneCampaign(this.props.campaign.campaign.id)
-        this.setState(hello)
+        let hello = await this.props.fetchOneCampaign(this.props.match.params.id)
+        // this.setState({campaign: hello})
         debugger;
-    }
-    return hello()
+    
+
 }
 
    render(){

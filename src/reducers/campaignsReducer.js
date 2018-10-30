@@ -9,8 +9,8 @@ const campaignsReducer = (state = [], action) =>{
         case 'CREATE_CAMPAIGN_SUCCESS':
             return state.concat(action.campaign)
         case 'UP_CAMPAIGN_SUCCESS':{
-            // debugger;
-            return {...state, campaigns: state.campaign.sold_qty}
+            debugger;
+            // return {...state, campaign:{sold_qty: state.campaign.sold_qty+1}}
         }
         case 'GET_ONE_CAMPAIGN_SUCCESS':
         return  {...state, campaign: action.campaign}
