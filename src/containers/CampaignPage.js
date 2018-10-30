@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CampaignCard from '../components/CampaignCard'
 import {connect} from 'react-redux'
-import {updateCampaign, joinCampaign} from '../action/Campaigns'
+import {updateCampaign, updateCampaign2, setOneCampaign} from '../action/Campaigns'
 import {fetchOneCampaign} from '../action/Campaigns'
 import {editCampaign} from '../action/Campaigns'
 import {newUpdate} from '../action/Campaigns'
@@ -26,18 +26,32 @@ componentDidMount() {
 //     }
 //   }
 // }
-// handleClick = () =>{
-//     updateCampaign(this.props.campaign.campaign)
-//         this.setState({campaign: this.props.campaign.campaign})
-// }
+
+
+handleClick = e =>{
+    e.preventDefault()
+    let newOne = this.props.campaign.campaign
+     const hello= async (newOne)=>{
+         debugger;
+        updateCampaign2(this.props.campaign.campaign)
+        debugger;
+        let hello = await setOneCampaign(this.props.campaign.campaign.id)
+        this.setState(hello)
+        debugger;
+    }
+    return hello()
+}
 
    render(){
-
+    debugger;
        return(
         <div class="center-div">
         {/* why it's not working?*/}
         {this.props.campaign.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
-        {this.props.campaign.campaign && <button onClick={updateCampaign(this.props.campaign.campaign)}>Join Campaign</button>}
+        {this.props.campaign.campaign && <button onClick={e=>this.handleClick(e)}>Join Campaign</button>}
+        {/* {this.props.campaign.campaign && editCampaign(this.props.campaign.campaign)} */}
+        {/* updateCampaign2(this.props.campaign.campaign) */}
+        
     </div>
        )
    } 
@@ -51,4 +65,4 @@ const mapStateToProps = (state) => {
   };
 
 
-export default connect(mapStateToProps, {newUpdate, fetchOneCampaign, updateCampaign, editCampaign})(CampaignPage); 
+export default connect(mapStateToProps, {fetchOneCampaign, updateCampaign2, editCampaign, setOneCampaign} )(CampaignPage); 

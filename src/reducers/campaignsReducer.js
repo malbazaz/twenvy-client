@@ -1,4 +1,4 @@
-import { updateCampaign } from "../action/Campaigns";
+import { updateCampaign2 } from "../action/Campaigns";
 
 const campaignsReducer = (state = [], action) =>{
     switch(action.type) {
@@ -8,8 +8,9 @@ const campaignsReducer = (state = [], action) =>{
             return  state.concat(action.campaigns)
         case 'CREATE_CAMPAIGN_SUCCESS':
             return state.concat(action.campaign)
-        case 'JOIN_CAMPAIGN_SUCCESS':{
-            return {...state, sold_qty: state.campaign.sold_qty+1}
+        case 'UP_CAMPAIGN_SUCCESS':{
+            // debugger;
+            return {...state, campaigns: state.campaign.sold_qty}
         }
         case 'GET_ONE_CAMPAIGN_SUCCESS':
         return  {...state, campaign: action.campaign}

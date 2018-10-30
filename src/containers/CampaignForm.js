@@ -7,8 +7,7 @@ import {fetchProducts} from '../action/Products'
 
 class CampaignForm extends Component {
 
-
-    //       handleSelect = event => {
+//       handleSelect = event => {
 //         var options = event.target.options;
 //         var value = [];
 //         for (var i = 0, l = options.length; i < l; i++) {

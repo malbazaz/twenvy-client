@@ -7,6 +7,7 @@
 //     };
 //   }
 
+
  export const fetchCampaigns = () =>{
    return (dispatch) => {
       return fetch('http://localhost:3001/api/campaigns')
@@ -73,11 +74,32 @@ export const resetCampaignForm = () =>{
   }
 }
 
+export const editCampaign = campaign => {
+return  { 
+type: 'UP_CAMPAIGN_SUCCESS', campaign
+ }
+
+};
+
+export async function updateCampaign2(campaign){
+campaign = {...campaign, sold_qty: campaign.sold_qty+1}
+debugger;
+let response = await fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ campaign })
+})
+let json = await response.json()
+debugger;
+}
+
 export const updateCampaign = campaign => {
 campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
 
+// debugger;
   return dispatch => {
- 
     return fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
       method: 'PUT',
       headers: {
@@ -86,16 +108,6 @@ campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
       body: JSON.stringify({ campaign })
     })
     .then(response => response.json())
+    // .then(editCampaign(campaign))
   };
 };
-
-export const editCampaign = campaign => {
-  return { 
-    type: 'JOIN_CAMPAIGN_SUCCESS', campaign
-   }
-};
-
-export const newUpdate = (campaign) =>{
-  editCampaign(campaign);
-  updateCampaign(campaign);
-}

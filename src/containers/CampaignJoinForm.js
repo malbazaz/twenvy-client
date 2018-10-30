@@ -49,7 +49,7 @@ class CampaignJoinForm extends Component {
     // }
      
       render() {
-          debugger;
+          // debugger;
         return(
             <div class="center-div">
               <Title text="Search a Campaign" />
