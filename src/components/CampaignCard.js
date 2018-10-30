@@ -14,7 +14,7 @@ const CampaignCard = ({campaign}) => (
 <CardHeader inverse color="primary"><Link to={`/campaigns/${campaign.id}`}> Campaign Number: {campaign.id}</Link></CardHeader>
     <CardBody>
 <CardTitle>Product Name: {campaign.product.name} </CardTitle>
-    <CardSubtitle><strong>Product Brand:</strong> {campaign.product_id}</CardSubtitle>
+    <CardSubtitle><strong>Product Brand:</strong> {campaign.product.brand}</CardSubtitle>
     <CardText><strong>Product Description: </strong>{campaign.product.description}</CardText>
     <img width="100%" src={campaign.product.image_url} alt="Card image cap" />
     <CardText><strong>End date: </strong> {campaign.end_date}</CardText>
