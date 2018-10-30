@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchOneCampaign} from '../action/Campaigns'
 import CampaignCard from '../components/CampaignCard'
-import {updateCampaign} from '../action/Campaigns'
+import {updateCampaign2} from '../action/Campaigns'
 // import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import {fetchCampaigns} from '../action/Campaigns'
 import { timeoutsShape } from 'reactstrap';
@@ -47,7 +47,19 @@ class CampaignJoinForm extends Component {
     //     }
     //   }
     // }
-     
+    handleClick = async e =>{
+      e.preventDefault()
+      let newOne = this.props.campaign.campaign
+           debugger;
+          let myhello = await updateCampaign2(this.props.campaign.campaign)
+          debugger;
+          let hello = await this.props.fetchOneCampaign(this.props.campaign.campaign.id)
+          // this.setState({campaign: hello})
+          debugger;
+      
+  
+  } 
+
       render() {
           // debugger;
         return(
@@ -68,8 +80,9 @@ class CampaignJoinForm extends Component {
          </div>
          <div>
              {this.props.campaign.campaign && <CampaignCard key={this.props.campaign.campaign.id} campaign={this.props.campaign.campaign} />}
-             {this.props.campaign.campaign && <button onClick={updateCampaign(this.props.campaign.campaign)}>Join Campaign</button>}
+             {this.props.campaign.campaign && <button onClick={e=>this.handleClick(e)}>Join Campaign</button>}
              {/* {this.props.campaign.campaign && <button onCllick={(event)=>this.handleRefresh(event)}>Reload</button>} */}
+             {/* updateCampaign(this.props.campaign.campaign) */}
          </div>
          </div>
        );
@@ -84,4 +97,4 @@ class CampaignJoinForm extends Component {
         })
     }
 
-    export default connect(mapStateToProps,{fetchOneCampaign, updateCampaign, fetchCampaigns})(CampaignJoinForm);
+    export default connect(mapStateToProps,{fetchOneCampaign, updateCampaign2, fetchCampaigns})(CampaignJoinForm);
