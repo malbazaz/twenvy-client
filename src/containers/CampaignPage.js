@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import CampaignCard from '../components/CampaignCard'
 import {connect} from 'react-redux'
-import {updateCampaign2, setOneCampaign} from '../action/Campaigns'
-import {fetchOneCampaign} from '../action/Campaigns'
+import {updateCampaign2, updateCampaign, setOneCampaign, findCampaign} from '../action/Campaigns'
+import {fetchOneCampaign, fetchCampaigns} from '../action/Campaigns'
 import {editCampaign} from '../action/Campaigns'
 
 
@@ -11,11 +11,31 @@ import {editCampaign} from '../action/Campaigns'
     
     
     componentDidMount() {
-         this.props.fetchOneCampaign(this.props.match.params.id)
+        debugger;
+            if(this.props.campaign.length>0 && !this.props.campaign.campaign){
+        debugger;
+                let id = parseInt(this.props.match.params.id,10)
+                debugger;
+                this.props.findCampaign(id)
+            }
+        }
     
-    }
     
-    handleClick = async e =>{
+    
+    componentDidUpdate(prevProps, prevState) {
+        // only update chart if the data has changed
+        debugger;
+        if (prevProps.campaign !== this.props.campaign) {
+            if(this.props.campaign.length>0 && !this.props.campaign.campaign){
+                                         debugger;
+                let id = parseInt(this.props.match.params.id,10)
+                debugger;
+                this.props.findCampaign(id)
+            }
+        }
+      }
+    
+      handleClick = async e =>{
         e.preventDefault()
         let newOne = this.props.campaign.campaign
              debugger;
@@ -47,5 +67,5 @@ import {editCampaign} from '../action/Campaigns'
       };
   
   
-    export default connect(mapStateToProps, {fetchOneCampaign, updateCampaign2, editCampaign, setOneCampaign} )(CampaignPage); 
+    export default connect(mapStateToProps, {findCampaign, fetchCampaigns, updateCampaign, fetchOneCampaign, updateCampaign2, editCampaign, setOneCampaign} )(CampaignPage); 
   

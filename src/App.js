@@ -19,8 +19,8 @@ import campaignsReducer from './reducers/campaignsReducer'
 class App extends Component {
 
   componentDidMount() {
-    // this.props.fetchCampaigns() 
-    // this.props.fetchProducts()
+    this.props.fetchCampaigns() 
+    this.props.fetchProducts()
   }
 
   render() {

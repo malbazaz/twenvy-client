@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {fetchOneCampaign} from '../action/Campaigns'
 import CampaignCard from '../components/CampaignCard'
 import {updateCampaign2} from '../action/Campaigns'
-import {fetchCampaigns} from '../action/Campaigns'
+import {fetchCampaigns, findCampaign} from '../action/Campaigns'
 import Title from '../components/Title'
 
   class CampaignJoinForm extends Component {
@@ -13,9 +13,9 @@ import Title from '../components/Title'
           campaign: []
         }
 
-        componentDidMount(){
-          this.props.fetchCampaigns()
-        }
+        // componentDidMount(){
+        //   this.props.fetchCampaigns()
+        // }
       
         handleChange = event => {
           this.setState({
@@ -25,7 +25,7 @@ import Title from '../components/Title'
 
         handleSubmit = event => {
           event.preventDefault()
-          this.props.fetchOneCampaign(this.state.campaignId)
+          this.props.findCampaign(parseInt(this.state.campaignId,10))
         }
 
       handleClick = async e =>{
@@ -75,6 +75,6 @@ import Title from '../components/Title'
           })
       }
 
-      export default connect(mapStateToProps,{fetchOneCampaign, updateCampaign2, fetchCampaigns})(CampaignJoinForm);
+      export default connect(mapStateToProps,{findCampaign, fetchOneCampaign, updateCampaign2, fetchCampaigns})(CampaignJoinForm);
 
 

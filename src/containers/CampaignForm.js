@@ -16,9 +16,9 @@ handleSelect = (event) => {
     }
 
 
-componentDidMount(){
-    this.props.fetchProducts()
-}
+// componentDidMount(){
+//     this.props.fetchProducts()
+// }
 
     handleChange = event =>{
         const {name, value} = event.target;
@@ -30,7 +30,9 @@ componentDidMount(){
        
       handleSubmit = event => {
         event.preventDefault();
+        // debugger;
         this.props.createCampaign(this.props.formData)
+        // debugger;
         this.setState({
             product_id: 0,
             end_date: 0,
@@ -40,7 +42,7 @@ componentDidMount(){
       }
 
     render() {
-        
+        // debugger;
     const {product_id, end_date, location, target_qty} = this.props.formData
         return (
             <div class="center-div">

@@ -46,6 +46,7 @@ export const createCampaign = campaign =>{
     body: JSON.stringify({campaign: campaign})})
     .then(response => response.json())
     .then(campaign => {
+      // debugger;
       dispatch(addCampaign(campaign))
       dispatch(resetCampaignForm())
     })
@@ -72,18 +73,18 @@ type: 'UP_CAMPAIGN_SUCCESS', campaign
 };
 
 export async function updateCampaign2(campaign){
-campaign = {...campaign, sold_qty: campaign.sold_qty+1}
-// debugger;
-let response = await fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
-  method: 'PUT',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ campaign })
-})
-let json = await response.json()
-// debugger;
-}
+  campaign = {...campaign, sold_qty: campaign.sold_qty+1}
+  // debugger;
+  let response = await fetch(`http://localhost:3001/api/campaigns/${campaign.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ campaign })
+  })
+  let json = await response.json()
+  // debugger;
+  }
 
 export const updateCampaign = campaign => {
 campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
@@ -97,5 +98,16 @@ campaign = {...campaign,sold_qty: campaign.sold_qty+1 }
       body: JSON.stringify({ campaign })
     })
     .then(response => response.json())
+    .then(campaign => {
+      // debugger;
+      dispatch(editCampaign(campaign))
+    })
+    .catch(error => console.log(error))
   };
 };
+
+export const findCampaign = (id) => {
+  return {
+    type: 'FIND_CAMPAIGN_SUCCESS', id
+  }
+}
